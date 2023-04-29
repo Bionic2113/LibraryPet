@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Hello World!</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<!--<button type="button" class="btn btn-primary">Primary</button>-->
+<!--<button type="button" class="btn btn-danger">Egor Kreed</button>-->
+<!--<button type="button" class="btn btn-dark">Jay Zee</button>-->
+<!--<button type="button" class="btn btn-outline-dark">Travis Scott</button>-->
+<!--<button type="button" class="btn btn-light">Hana Montana</button>-->
+<!--<table class="table table-primary">-->
+<!--    <thead class="text-danger text-bg-info">-->
+<!--    <tr>-->
+<!--        <th class="text-secondary">ID</th>-->
+<!--        <th class="text-primary">Title</th>-->
+<!--        <th class="text-capitalize">Author</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody class="bg-body">-->
+<!--        <tr class="table table-primary">-->
+<!--            <td class="text-danger">a1</td>-->
+<!--            <td class="shadow-lg text-bg-danger">a2</td>-->
+<!--            <td class="text-lg-start">a3213</td>-->
+<!--        </tr>-->
+<!--        <tr class="table table-danger">-->
+<!--            <td >b1</td>-->
+<!--            <td >b2</td>-->
+<!--            <td >b3</td>-->
+<!--        </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+</body>
+</html>

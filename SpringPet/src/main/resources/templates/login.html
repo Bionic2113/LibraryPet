@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Sign in </title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="bg-dark bg-opacity-100">
+    <div th:if="${param.error}" class="alert alert-danger text-white bg-danger bg-opacity-50 text-center col-md-3 mx-auto">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success text-white bg-success bg-opacity-50 col-md-3 text-center mx-auto">
+        You have been logged out.
+    </div>
+    <div class="container justify-content-center mx-auto my-auto card border-light text-white bg-info bg-gradient bg-opacity-25 col-md-2" >
+        <form th:action="@{/login}" method="post">
+            <div><label class="text-white text-opacity-75"> Login: <input class="form-control" type="text" name="username"/> </label></div>
+            <div class="mb-2"><label class="text-white text-opacity-75"> Password: <input class="form-control" type="password" name="password"/> </label></div>
+            <div><input class="btn btn-success" type="submit" value="Sign In"/>
+                 <a href="/register" class="btn btn-outline-info bg-opacity-40 text-white mt-1" >Зарегистрироваться</a></div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark" m_init="2233643202211221713">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body class="bg-dark">
+<!--    <header th:insert="blocks/header :: header"></header>-->
+<!--/*@thymesVar id="user" type="com.caterpillar.shamil.SpringSecurity.entity.Users"*/-->
+    <form th:method="post" th:action="@{/register}" th:object="${user}">
+        <div>
+            <label style="color: chocolate">Username: <input type="text" th:field="*{username}" name="username"></label>
+        </div>
+        <div>
+            <label style="color: chocolate">Login: <input type="login" th:field="*{login}" name="login"></label>
+        </div>
+        <div>
+            <label style="color: chocolate">Password: <input type="password" th:field="*{password}" name="password"></label>
+        </div>
+        <div> Click -> <input type="submit" value="Create account"></div>
+    </form>
+<!--    <footer th:insert="blocks/footer :: footer"></footer>-->
+</body>
+</html>

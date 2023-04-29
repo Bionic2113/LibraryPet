@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark" m_init="2233643202211221713">
+
+<head>
+  <title>Add new</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body class="bg-dark">
+
+<!--    <header th:insert="blocks/header :: header"></header>-->
+  <form th:method="GET" th:action="@{/admin/bookspeople/new}">
+      <table class="table-bordered table-hover col-8 text-white bg-success bg-opacity-50">
+          <thead>
+          <tr class="text-shadow-3 bg-dark">
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+          </tr>
+          </thead>
+          <tbody>
+      <!--/*@thymesVar id="table_books" type="com.cattepillar.shamil.SpringSecurity.entity.Books"*/-->
+          <tr th:each="book : ${table_books}">
+                <td th:text="${book.getId()}"></td>
+                <td th:text="${book.getTitle()}"></td>
+                <td th:text="${book.getAuthor()}"></td>
+          </tr>
+          </tbody>
+      </table>
+      <hr>
+      <!--/*@thymesVar id="table_people" type="com.cattepillar.shamil.SpringSecurity.entity.People"*/-->
+      <table class="table-bordered table-hover col-8 text-white bg-success bg-opacity-50">
+          <thead>
+          <tr class="text-shadow-3 bg-dark">
+              <th>ID</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Patronymic</th>
+          </tr>
+          </thead>
+          <tbody>
+              <tr th:each="person : ${table_people}">
+                    <td th:text="${person.getId()}"></td>
+                    <td th:text="${person.getFirstname()}"></td>
+                    <td th:text="${person.getLastname()}"></td>
+                    <td th:text="${person.getPatronymic()}"></td>
+              </tr>
+          </tbody>
+      </table>
+    </form>
+    <hr>
+  <b style="color: green">Enter the data</b>
+  <form th:method="POST" th:action="@{/admin/bookspeople/new}">
+       <label class="form-label text-warning" >Id book: <input type="text"  name="id_book"></label>
+       <label class="form-label text-warning" >Id person: <input type="text"  name="id_person"></label>
+      <input type="submit" value="Save">
+    </form>
+  <a class="btn btn-outline-warning" href="/admin">Отмена</a>
+<!--    <footer th:insert="blocks/footer :: footer"></footer>-->
+</body>
+</html>
