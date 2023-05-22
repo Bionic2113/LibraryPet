@@ -17,7 +17,7 @@
     </tr>
     </thead>
     <tbody>
-    <!--/*@thymesVar id="table" type="com.caterpillar.shamil.SpringSecurity.entity.Books"*/-->
+    <!--/*@thymesVar id="table" type="com.caterpillar.shamil.LibraryPet.entity.Books"*/-->
     <tr class="text-bg-info bg-gradient row-cols-auto" th:each="book : ${table}">
         <td th:text="${book.getId()}"></td>
         <td th:text="${book.getTitle()}"></td>

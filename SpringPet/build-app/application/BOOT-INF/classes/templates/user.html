@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body class="bg-dark">
+<h1 class="text-white-50">It's users table</h1>
+<!--<caption class="text-white text-center">Books</caption>-->
+<table class="table-bordered table-hover col-8 text-white">
+    <thead>
+    <tr class="text-shadow-3">
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="table" type="com.caterpillar.shamil.SpringSecurity.entity.Books"*/-->
+    <tr class="text-bg-info bg-gradient row-cols-auto" th:each="book : ${table}">
+        <td th:text="${book.getId()}"></td>
+        <td th:text="${book.getTitle()}"></td>
+        <td th:text="${book.getAuthor()}"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/logout" class="btn btn-outline-secondary text-white">Выйти</a>
+<a href="/reader" class="btn btn-outline-warning text-white">Найти книгу</a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+syntax = "proto3";
+package com.caterpillar.shamil.proto;
+import "google/protobuf/empty.proto";
+import "Books.proto";
+import "People.proto";
+
+message BooksPeople{
+  uint32 id = 1;
+  Book book = 2;
+  Person person = 3;
+  bool active = 4;
+}
+
+message ListBooksPeople{
+  repeated BooksPeople book_person = 1;
+}
+
+message BooksPeopleRequest{
+  Book book = 1;
+  Person person = 2;
+}
+
+service DeleteBPService{
+  rpc deleteBooksPeople(Id) returns (BooksPeople);
+}
+
+service GetBPService{
+  rpc getAllBooksPeople(google.protobuf.Empty) returns (ListBooksPeople);
+  rpc getBooksPeopleById(Id) returns (BooksPeople);
+}
+
+service UpdateBPService{
+  rpc updateBooksPeople(BooksPeople) returns (BooksPeople);
+}
+
+service PostBPService{
+  rpc createBooksPeople(BooksPeopleRequest) returns (BooksPeople);
+}

@@ -7,7 +7,7 @@
 </head>
 <body class="bg-dark">
 <!--    <header th:insert="blocks/header :: header"></header>-->
-<!--/*@thymesVar id="user" type="com.caterpillar.shamil.SpringSecurity.entity.Users"*/-->
+<!--/*@thymesVar id="user" type="com.caterpillar.shamil.LibraryPet.entity.Users"*/-->
     <form th:method="post" th:action="@{/register}" th:object="${user}">
         <div>
             <label style="color: chocolate">Username: <input type="text" th:field="*{username}" name="username"></label>

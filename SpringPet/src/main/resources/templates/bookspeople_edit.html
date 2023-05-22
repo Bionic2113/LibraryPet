@@ -16,7 +16,7 @@
         </tr>
         </thead>
         <tbody>
-        <!--/*@thymesVar id="table_books" type="com.caterpillar.shamil.SpringSecurity.entity.Books"*/-->
+        <!--/*@thymesVar id="table_books" type="com.caterpillar.shamil.LibraryPet.entity.Books"*/-->
         <tr th:each="book : ${table_books}">
             <td th:text="${book.getId()}"></td>
             <td th:text="${book.getTitle()}"></td>
@@ -25,7 +25,7 @@
         </tbody>
     </table>
     <hr>
-    <!--/*@thymesVar id="table_people" type="com.caterpillar.shamil.SpringSecurity.entity.People"*/-->
+    <!--/*@thymesVar id="table_people" type="com.caterpillar.shamil.LibraryPet.entity.People"*/-->
     <table class="table-bordered table-hover col-8 text-white bg-success bg-opacity-50">
         <thead>
         <tr class="text-shadow-3 bg-dark">
@@ -46,11 +46,11 @@
     </table>
 </form>
 <hr>
-    <!--/*@thymesVar id="bookspeople" type="com.caterpillar.shamil.SpringSecurity.entity.BooksPeople"*/-->
+<!--/*@thymesVar id="bookspeople" type="com.caterpillar.shamil.LibraryPet.entity.BooksPeople"*/-->
     <form th:method="PATCH" th:action="@{/admin/bookspeople/{id}(id=${bookspeople.getId()})}" th:object="${bookspeople}">
 <!--        <input type="hidden"  th:field="*{id}">-->
 <!--        <input type="hidden"  th:field="*{peoples.id}">-->
-        <!--/*@thymesVar id="book" type="com.caterpillar.shamil.SpringSecurity.entity.Books"*/-->
+        <!--/*@thymesVar id="book" type="com.caterpillar.shamil.LibraryPet.entity.Books"*/-->
         <div th:object="${book}">
             <p class="text-success">Enter the book data</p>
             <input type="hidden"  th:field="*{id}">
@@ -58,7 +58,7 @@
             <label class="form-label text-warning">Author: <input type="text"  th:field="*{author}"></label>
         </div>
         <p class="text-success">Enter the person data</p>
-        <!--/*@thymesVar id="person" type="com.caterpillar.shamil.SpringSecurity.entity.People"*/-->
+        <!--/*@thymesVar id="person" type="com.caterpillar.shamil.LibraryPet.entity.People"*/-->
         <div th:object="${person}">
             <input type="hidden"  th:field="*{id}">
             <label class="form-label text-warning">Last name: <input type="text"  th:field="*{lastname}"></label>

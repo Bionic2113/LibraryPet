@@ -1,0 +1,40 @@
+syntax = "proto3";
+package com.caterpillar.shamil.proto;
+import "google/protobuf/empty.proto";
+
+message Id{
+  uint32 id = 1;
+}
+
+message Book{
+  uint32 id = 1;
+  string title = 2;
+  string author = 3;
+  bool active = 4;
+}
+
+message ListBooks{
+  repeated Book books = 1;
+}
+
+message BookRequest{
+  string title = 1;
+  string author = 2;
+}
+
+service DeleteBookService{
+  rpc deleteBook(Id) returns (Book);
+}
+
+service GetBookService{
+  rpc getAllBooks(google.protobuf.Empty) returns (ListBooks);
+  rpc getBookById(Id) returns (Book);
+}
+
+service UpdateBookService{
+  rpc updateBook(Book) returns (Book);
+}
+
+service PostBookService{
+  rpc createBook(BookRequest) returns (Book);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body class="bg-dark">
+<h1 class="text-white-50">It's admins list</h1>
+<!--style="list-style-image: linear-gradient(#FF7A2F 0, #FF7A2F 50%, #FFB214 50%);"-->
+<table class="table-bordered table-hover col-8 text-white bg-success bg-opacity-50">
+    <thead>
+    <tr class="text-shadow-3 bg-dark">
+        <th>Title</th>
+        <th>Author</th>
+        <th>Last name</th>
+        <th>First name</th>
+        <th>Patronymic</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <!--/*@thymesVar id="table" type="com.caterpillar.shamil.SpringSecurity.entity.BooksPeople"*/-->
+    <tbody th:each="bookpeople : ${table}">
+    <tr>
+<!--        <a th:href="@{/admin/bookspeople/{id}(id=${bookpeople.getId()})}">-->
+            <td th:text="${bookpeople.books.getTitle()}"></td>
+            <td th:text="${bookpeople.books.getAuthor}"></td>
+            <td th:text="${bookpeople.peoples.getLastname()}"></td>
+            <td th:text="${bookpeople.peoples.getFirstname()}"></td>
+            <td th:text="${bookpeople.peoples.getPatronymic()}"></td>
+            <td class="btn btn-outline-info btn-sm"><a th:href="@{/admin/bookspeople/{id}(id=${bookpeople.getId()})}">Open</a></td>
+    </tr>
+    </tbody>
+</table>
+<form th:method="GET" th:action="@{/admin/bookspeople/new}">
+    <input type="submit" value="Add new">
+</form>
+<a href="/logout" class="btn btn-outline-secondary text-white">Выйти</a>
+<a href="/reader" class="btn btn-outline-warning text-white">Найти книгу</a>
+</body>
+</html>

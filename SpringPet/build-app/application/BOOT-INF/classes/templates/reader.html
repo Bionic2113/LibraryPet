@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Blank</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="bg-dark">
+    <div th:if="${param.not_found}" class="alert alert-danger text-white bg-danger bg-opacity-50 text-center col-md-3 mx-auto">
+        Not found
+    </div>
+    <!--/*@thymesVar id="newPage" type="java.lang.String"*/-->
+    <a th:if="${newPage != null}" th:href="@{/reader}" class="btn btn-outline-light text-success">Вернуться к поиску</a>
+    <div class="text-white text-center col-md-3 mx-auto" th:if="${newPage != null}" th:utext="${newPage}"></div>
+    <form th:if="${newPage == null}" th:method="post" th:action="@{/reader}">
+        <p class="text-success">Если автор народ, то ничего не указывайте в графе "Автор"</p>
+        <label class="form-label text-warning">Название книги<input  th:type="text" th:name="title"></label>
+        <label class="p-5 form-label text-warning">Автор<input th:type="text" th:name="author" th:default="Народное"></label>
+        <button class="btn btn-outline-warning" th:type="submit" th:text="Найти"></button>
+    </form>
+    <a href="/logout" class="btn btn-outline-secondary text-white">Выйти из аккаунта</a>
+</body>
+</html>
